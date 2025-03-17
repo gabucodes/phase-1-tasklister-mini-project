@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
 let form = document.querySelector('form')
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-  handleToDo(e.target.querySelector('#new-task-description').value)
+  let inputValue = (e.target.querySelector('#new-task-description').value)
+  handleToDo(inputValue)
   form.reset()
 })
 });
