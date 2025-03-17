@@ -1,24 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
-let form = document.querySelector('form')
-form.addEventListener('submit', (e) => {
-    e.preventDefault()
-  let inputValue = (e.target.querySelector('#new-task-description').value)
-  handleToDo(inputValue)
-  form.reset()
+  let form = document.getElementById('create-task-form')
+let task = document.getElementById('task')
+
+  form.addEventListener('submit', (e)=> {
+  e.preventDefault()
+  const li = document.createElement('li')
+  const taskInput = document.getElementById('new-task-description')
+  li.textContent =  taskInput.value + " "
+  const btn =  document.createElement('button')
+   btn.textContent = 'x'
+  li.appendChild(btn)
+  tasks.appendChild(li)
+  btn.addEventListener('click', handleDelete)
 })
-});
-
-function handleToDo(todo) {
-  let p = document.createElement('p')
-  let btn = document.createElement('button')
-  btn.addEventListener('click', doDelete)
-  btn.textContent = 'x'
-  p.textContent = `${todo} `
-  p.appendChild(btn)
-  document.querySelector('#list').appendChild(p)
-}
-
-
-function doDelete(e) {
+  
+  function handleDelete(e){
   e.target.parentNode.remove()
-}
+  } 
+})
